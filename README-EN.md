@@ -614,7 +614,7 @@ close_match_threshold = 5  # Close match threshold (seconds)
 
 - **GitHub**: [@evil0ctal](https://github.com/evil0ctal)
 - **Project**: [Douyin-TikTok-Video-ID-Decoder](https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder)
-- **Issue Tracker**: [GitHub Issues](https://github.com/evil0ctal/TikHub-DataSet-API/issues)
+- **Issue Tracker**: [GitHub Issues](https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder/issues)
 
 ---
 

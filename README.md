@@ -616,7 +616,7 @@ close_match_threshold = 5  # 接近匹配阈值（秒）
 
 - **GitHub**: [@evil0ctal](https://github.com/evil0ctal)
 - **项目**: [Douyin-TikTok-Video-ID-Decoder](https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder)
-- **问题反馈**: [GitHub Issues](https://github.com/evil0ctal/TikHub-DataSet-API/issues)
+- **问题反馈**: [GitHub Issues](https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder/issues)
 
 ---
 
