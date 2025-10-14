@@ -1,0 +1,445 @@
+{
+  "total_count": 73,
+  "douyin_count": 53,
+  "tiktok_count": 20,
+  "videos": [
+    {
+      "aweme_id": "7153549929326120227",
+      "create_time": 1665565640,
+      "create_datetime": "2022-10-12 02:07:20",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7266740902494833931",
+      "create_time": 1691919969,
+      "create_datetime": "2023-08-13 02:46:09",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7196618597496524067",
+      "create_time": 1675593344,
+      "create_datetime": "2023-02-05 02:35:44",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7559922055354846521",
+      "create_time": 1760181521,
+      "create_datetime": "2025-10-11 04:18:41",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7557668494435732795",
+      "create_time": 1759656822,
+      "create_datetime": "2025-10-05 02:33:42",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7553588363032005946",
+      "create_time": 1758706846,
+      "create_datetime": "2025-09-24 02:40:46",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7552474106132090171",
+      "create_time": 1758447412,
+      "create_datetime": "2025-09-21 02:36:52",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7550994775403416891",
+      "create_time": 1758102977,
+      "create_datetime": "2025-09-17 02:56:17",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7547281170661805369",
+      "create_time": 1757238336,
+      "create_datetime": "2025-09-07 02:45:36",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7543950832598797625",
+      "create_time": 1756462931,
+      "create_datetime": "2025-08-29 03:22:11",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7542102211314076986",
+      "create_time": 1756032518,
+      "create_datetime": "2025-08-24 03:48:38",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7540618822338186556",
+      "create_time": 1755687137,
+      "create_datetime": "2025-08-20 03:52:17",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7530572907333815612",
+      "create_time": 1753348140,
+      "create_datetime": "2025-07-24 02:09:00",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7529103083936156986",
+      "create_time": 1753005920,
+      "create_datetime": "2025-07-20 03:05:20",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7526887680065244474",
+      "create_time": 1752490106,
+      "create_datetime": "2025-07-14 03:48:26",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7526504627225234745",
+      "create_time": 1752400920,
+      "create_datetime": "2025-07-13 03:02:00",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7520929657370807611",
+      "create_time": 1751102895,
+      "create_datetime": "2025-06-28 02:28:15",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7514621534750084409",
+      "create_time": 1749634173,
+      "create_datetime": "2025-06-11 02:29:33",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7513881453705563452",
+      "create_time": 1749461859,
+      "create_datetime": "2025-06-09 02:37:39",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7511664279331491132",
+      "create_time": 1748945634,
+      "create_datetime": "2025-06-03 03:13:54",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7511292181618085179",
+      "create_time": 1748858996,
+      "create_datetime": "2025-06-02 03:09:56",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7508713626854657338",
+      "create_time": 1748258630,
+      "create_datetime": "2025-05-26 04:23:50",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7507202953980153146",
+      "create_time": 1747906899,
+      "create_datetime": "2025-05-22 02:41:39",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7506081353857207609",
+      "create_time": 1747645758,
+      "create_datetime": "2025-05-19 02:09:18",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7502379797902216484",
+      "create_time": 1746783928,
+      "create_datetime": "2025-05-09 02:45:28",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7502000723766430988",
+      "create_time": 1746695669,
+      "create_datetime": "2025-05-08 02:14:29",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7490506246395563300",
+      "create_time": 1744019412,
+      "create_datetime": "2025-04-07 02:50:12",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7488278337312263460",
+      "create_time": 1743500675,
+      "create_datetime": "2025-04-01 02:44:35",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7484211357902966079",
+      "create_time": 1742553763,
+      "create_datetime": "2025-03-21 03:42:43",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7477512161175080255",
+      "create_time": 1740993983,
+      "create_datetime": "2025-03-03 01:26:23",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7476417322140437796",
+      "create_time": 1740739076,
+      "create_datetime": "2025-02-28 02:37:56",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7475679294484729124",
+      "create_time": 1740567245,
+      "create_datetime": "2025-02-26 02:54:05",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7473824079032749323",
+      "create_time": 1740135281,
+      "create_datetime": "2025-02-21 02:54:41",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7473079802631589177",
+      "create_time": 1739961989,
+      "create_datetime": "2025-02-19 02:46:29",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7471222653760654611",
+      "create_time": 1739529599,
+      "create_datetime": "2025-02-14 02:39:59",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7468236778898459943",
+      "create_time": 1738834400,
+      "create_datetime": "2025-02-06 01:33:20",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7467859527912770870",
+      "create_time": 1738746575,
+      "create_datetime": "2025-02-05 01:09:35",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7464176276731890983",
+      "create_time": 1737888989,
+      "create_datetime": "2025-01-26 02:56:29",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7461944739479194899",
+      "create_time": 1737369429,
+      "create_datetime": "2025-01-20 02:37:09",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7455641451033005324",
+      "create_time": 1735901828,
+      "create_datetime": "2025-01-03 02:57:08",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7454518969194630412",
+      "create_time": 1735640480,
+      "create_datetime": "2024-12-31 02:21:20",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7454129794217790774",
+      "create_time": 1735549885,
+      "create_datetime": "2024-12-30 01:11:25",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7453025153564298559",
+      "create_time": 1735292656,
+      "create_datetime": "2024-12-27 01:44:16",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7451536968590150923",
+      "create_time": 1734946197,
+      "create_datetime": "2024-12-23 01:29:57",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7449329569653460282",
+      "create_time": 1734432208,
+      "create_datetime": "2024-12-17 02:43:28",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7444133391118683442",
+      "create_time": 1733222390,
+      "create_datetime": "2024-12-03 02:39:50",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7443366116870720777",
+      "create_time": 1733043744,
+      "create_datetime": "2024-12-01 01:02:24",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7441195561165851914",
+      "create_time": 1732538362,
+      "create_datetime": "2024-11-25 04:39:22",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7432607934867180809",
+      "create_time": 1730538906,
+      "create_datetime": "2024-11-02 02:15:06",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7426764196366339354",
+      "create_time": 1729178301,
+      "create_datetime": "2024-10-17 08:18:21",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7424444791112338697",
+      "create_time": 1728638273,
+      "create_datetime": "2024-10-11 02:17:53",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7395877358483328307",
+      "create_time": 1721986894,
+      "create_datetime": "2024-07-26 02:41:34",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7391056989352168714",
+      "create_time": 1720864572,
+      "create_datetime": "2024-07-13 02:56:12",
+      "source": "Douyin"
+    },
+    {
+      "aweme_id": "7559684939684400414",
+      "create_time": 1760126333,
+      "create_datetime": "2025-10-10 12:58:53",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7559661864628538654",
+      "create_time": 1760120961,
+      "create_datetime": "2025-10-10 11:29:21",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7559607368695188766",
+      "create_time": 1760108270,
+      "create_datetime": "2025-10-10 07:57:50",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7559309513321352478",
+      "create_time": 1760038906,
+      "create_datetime": "2025-10-09 12:41:46",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7558891371189325087",
+      "create_time": 1759941556,
+      "create_datetime": "2025-10-08 09:39:16",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7558545854957751582",
+      "create_time": 1759861110,
+      "create_datetime": "2025-10-07 11:18:30",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7558516087483010334",
+      "create_time": 1759854174,
+      "create_datetime": "2025-10-07 09:22:54",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7558500140869225758",
+      "create_time": 1759850468,
+      "create_datetime": "2025-10-07 08:21:08",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7558142881173671199",
+      "create_time": 1759767302,
+      "create_datetime": "2025-10-06 09:15:02",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7557835825778560287",
+      "create_time": 1759695799,
+      "create_datetime": "2025-10-05 13:23:19",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7556652844523310367",
+      "create_time": 1759420373,
+      "create_datetime": "2025-10-02 08:52:53",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7556308975713537311",
+      "create_time": 1759340308,
+      "create_datetime": "2025-10-01 10:38:28",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7556036906631318815",
+      "create_time": 1759276948,
+      "create_datetime": "2025-09-30 17:02:28",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7556029213594144031",
+      "create_time": 1759275160,
+      "create_datetime": "2025-09-30 16:32:40",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7556009541616389407",
+      "create_time": 1759270589,
+      "create_datetime": "2025-09-30 15:16:29",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7555940417905134878",
+      "create_time": 1759254500,
+      "create_datetime": "2025-09-30 10:48:20",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7555600450024721694",
+      "create_time": 1759175327,
+      "create_datetime": "2025-09-29 12:48:47",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7555526907157040414",
+      "create_time": 1759158202,
+      "create_datetime": "2025-09-29 08:03:22",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7554123030205713694",
+      "create_time": 1758831339,
+      "create_datetime": "2025-09-25 13:15:39",
+      "source": "TikTok"
+    },
+    {
+      "aweme_id": "7554044414469917982",
+      "create_time": 1758813032,
+      "create_datetime": "2025-09-25 08:10:32",
+      "source": "TikTok"
+    }
+  ]
+}
