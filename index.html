@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="抖音/TikTok 视频ID在线解析工具 - Douyin/TikTok Video ID Decoder">
+    <meta name="keywords" content="抖音,TikTok,视频ID,解析,Decoder,aweme_id">
+    <meta name="author" content="Evil0ctal">
+    <title>抖音/TikTok 视频ID解析器 | Douyin/TikTok Video ID Decoder</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #7c3aed;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #0f172a;
+                --bg-secondary: #1e293b;
+                --text-primary: #f1f5f9;
+                --text-secondary: #94a3b8;
+                --border-color: #334155;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .header .subtitle {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .main-card {
+            background: var(--bg-primary);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .input-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+
+        .input-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border-color);
+        }
+
+        .results {
+            margin-top: 2rem;
+        }
+
+        .result-item {
+            background: var(--bg-secondary);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .result-id {
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .result-field {
+            padding: 0.75rem;
+            background: var(--bg-primary);
+            border-radius: 0.375rem;
+        }
+
+        .result-field-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .result-field-value {
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            word-break: break-all;
+        }
+
+        .bit-structure {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--bg-primary);
+            border-radius: 0.375rem;
+            overflow-x: auto;
+        }
+
+        .bit-row {
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            font-size: 0.85rem;
+            margin: 0.25rem 0;
+            white-space: nowrap;
+        }
+
+        .bit-label {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .high-bits {
+            color: var(--primary-color);
+        }
+
+        .low-bits {
+            color: var(--secondary-color);
+        }
+
+        .info-section {
+            background: var(--bg-primary);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 2rem;
+        }
+
+        .info-section h2 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .info-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-section li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .info-section li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 2rem 0;
+            opacity: 0.9;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .badge-info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .example-ids {
+            margin-top: 0.5rem;
+            padding: 0.75rem;
+            background: var(--bg-secondary);
+            border-radius: 0.375rem;
+            font-size: 0.9rem;
+        }
+
+        .example-ids strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .example-ids code {
+            display: block;
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            color: var(--text-secondary);
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .main-card {
+                padding: 1.5rem;
+            }
+
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .error-message {
+            background: #fef2f2;
+            color: #991b1b;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--danger-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎬 抖音/TikTok 视频ID解析器</h1>
+            <p>Douyin/TikTok Video ID Decoder</p>
+            <p class="subtitle">基于 Snowflake 风格算法 | Powered by Snowflake-style Algorithm</p>
+        </div>
+
+        <!-- Main Input Card -->
+        <div class="main-card">
+            <div class="input-group">
+                <label for="idInput">
+                    视频ID输入 | Video ID Input
+                    <span class="badge badge-info">支持批量 | Batch Supported</span>
+                </label>
+                <textarea
+                    id="idInput"
+                    rows="5"
+                    placeholder="输入一个或多个视频ID，每行一个 | Enter one or more video IDs, one per line&#10;&#10;示例 | Example:&#10;7559684939684400414&#10;7153549929326120227&#10;7266740902494833931"
+                ></textarea>
+
+                <div class="example-ids">
+                    <strong>示例数据 | Example IDs:</strong>
+                    <code>抖音 | Douyin: 7153549929326120227</code>
+                    <code>TikTok: 7559684939684400414</code>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="decodeIds()">
+                    🔍 解析 | Decode
+                </button>
+                <button class="btn btn-secondary" onclick="clearResults()">
+                    🗑️ 清空 | Clear
+                </button>
+                <button class="btn btn-secondary" onclick="loadExamples()">
+                    📝 加载示例 | Load Examples
+                </button>
+            </div>
+
+            <div class="loading" id="loading">
+                <p>解析中... | Decoding...</p>
+            </div>
+
+            <div id="results" class="results"></div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section">
+            <h2>📖 使用说明 | Instructions</h2>
+            <ul>
+                <li><strong>ID结构:</strong> 64位无符号整数，高32位为Unix时间戳（秒级），低32位为唯一性标识</li>
+                <li><strong>ID Structure:</strong> 64-bit unsigned integer, high 32 bits = Unix timestamp (seconds), low 32 bits = uniqueness bits</li>
+                <li><strong>准确性:</strong> 解码时间与实际发布时间可能有5-30秒误差（属于正常范围）</li>
+                <li><strong>Accuracy:</strong> Decoded time may differ from actual publish time by 5-30 seconds (normal range)</li>
+                <li><strong>应用场景:</strong> 时间范围查询、时序分析、数据分片、批次识别</li>
+                <li><strong>Use Cases:</strong> Time range queries, time series analysis, data sharding, batch identification</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>🔧 技术细节 | Technical Details</h2>
+            <ul>
+                <li><strong>高32位 | High 32 bits:</strong> Unix时间戳（秒级）| Unix timestamp (second-level)</li>
+                <li><strong>低32位 | Low 32 bits:</strong> 唯一性位（分片ID + 序列号）| Uniqueness bits (Shard ID + Sequence)</li>
+                <li><strong>算法验证:</strong> 已使用73条真实数据验证，平均误差14.3秒</li>
+                <li><strong>Algorithm Validation:</strong> Validated with 73 real samples, average error 14.3 seconds</li>
+                <li><strong>项目地址:</strong> <a href="https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder" target="_blank">GitHub Repository</a></li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Made with ❤️ by <a href="https://github.com/evil0ctal" target="_blank">Evil0ctal</a></p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                <a href="https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder" target="_blank">⭐ GitHub</a> |
+                <a href="https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder/blob/main/README.md" target="_blank">📖 文档</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 核心解码函数 | Core decode function
+        function decodeAwemeId(idStr) {
+            try {
+                // 将字符串转换为BigInt（支持64位整数）| Convert string to BigInt (supports 64-bit integers)
+                const n = BigInt(idStr);
+
+                // 提取高32位（时间戳）| Extract high 32 bits (timestamp)
+                const tsSec = Number(n >> 32n);
+
+                // 提取低32位（唯一性位）| Extract low 32 bits (uniqueness bits)
+                const low32 = Number(n & 0xFFFFFFFFn);
+
+                // 转换为日期时间 | Convert to datetime
+                const dtUtc = new Date(tsSec * 1000);
+
+                // 转换为本地时间 | Convert to local time
+                const dtLocal = dtUtc.toLocaleString('zh-CN', { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone });
+
+                // 分析低32位结构（16+16划分）| Analyze low 32-bit structure (16+16 division)
+                const shardId = (low32 >> 16) & 0xFFFF;
+                const sequence = low32 & 0xFFFF;
+
+                // 64位二进制表示 | 64-bit binary representation
+                const bin64 = n.toString(2).padStart(64, '0');
+                const high32Bin = bin64.substring(0, 32);
+                const low32Bin = bin64.substring(32);
+
+                return {
+                    success: true,
+                    id: idStr,
+                    timestampSec: tsSec,
+                    datetimeUtc: dtUtc.toISOString(),
+                    datetimeLocal: dtLocal,
+                    low32Dec: low32,
+                    low32Hex: '0x' + low32.toString(16).toUpperCase(),
+                    low32Bin: '0b' + low32.toString(2).padStart(32, '0'),
+                    shardId: shardId,
+                    shardIdHex: '0x' + shardId.toString(16).toUpperCase(),
+                    sequence: sequence,
+                    sequenceHex: '0x' + sequence.toString(16).toUpperCase(),
+                    high32Bin: high32Bin,
+                    low32BinFull: low32Bin
+                };
+            } catch (error) {
+                return {
+                    success: false,
+                    id: idStr,
+                    error: error.message
+                };
+            }
+        }
+
+        // 格式化二进制显示（每8位一组）| Format binary display (groups of 8 bits)
+        function formatBinary(binStr) {
+            let result = '';
+            for (let i = 0; i < binStr.length; i += 8) {
+                result += binStr.substring(i, i + 8) + ' ';
+            }
+            return result.trim();
+        }
+
+        // 创建结果HTML | Create result HTML
+        function createResultHtml(result) {
+            if (!result.success) {
+                return `
+                    <div class="error-message">
+                        <strong>错误 | Error:</strong> 无法解析ID "${result.id}"<br>
+                        ${result.error}
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="result-item">
+                    <div class="result-header">
+                        <div class="result-id">${result.id}</div>
+                        <span class="badge badge-success">✓ 解析成功 | Decoded</span>
+                    </div>
+
+                    <div class="result-grid">
+                        <div class="result-field">
+                            <div class="result-field-label">⏰ UTC时间 | UTC Time</div>
+                            <div class="result-field-value">${result.datetimeUtc}</div>
+                        </div>
+                        <div class="result-field">
+                            <div class="result-field-label">🌍 本地时间 | Local Time</div>
+                            <div class="result-field-value">${result.datetimeLocal}</div>
+                        </div>
+                        <div class="result-field">
+                            <div class="result-field-label">📅 时间戳 | Timestamp (秒)</div>
+                            <div class="result-field-value">${result.timestampSec}</div>
+                        </div>
+                        <div class="result-field">
+                            <div class="result-field-label">🔢 分片ID | Shard ID</div>
+                            <div class="result-field-value">${result.shardId} (${result.shardIdHex})</div>
+                        </div>
+                        <div class="result-field">
+                            <div class="result-field-label">📊 序列号 | Sequence</div>
+                            <div class="result-field-value">${result.sequence} (${result.sequenceHex})</div>
+                        </div>
+                        <div class="result-field">
+                            <div class="result-field-label">💾 低32位 | Low 32 bits</div>
+                            <div class="result-field-value">${result.low32Dec} (${result.low32Hex})</div>
+                        </div>
+                    </div>
+
+                    <div class="bit-structure">
+                        <div class="bit-row">
+                            <span class="bit-label">64位结构 | 64-bit Structure:</span>
+                        </div>
+                        <div class="bit-row">
+                            <span class="bit-label">高32位 | High:</span> <span class="high-bits">${formatBinary(result.high32Bin)}</span>
+                        </div>
+                        <div class="bit-row">
+                            <span class="bit-label">低32位 | Low: </span> <span class="low-bits">${formatBinary(result.low32BinFull)}</span>
+                        </div>
+                        <div class="bit-row">
+                            <span class="bit-label">解读 | Info:</span>
+                            <span class="high-bits">时间戳(Timestamp)</span> +
+                            <span class="low-bits">分片(Shard)+序列(Seq)</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 解析ID | Decode IDs
+        function decodeIds() {
+            const input = document.getElementById('idInput').value.trim();
+            const resultsDiv = document.getElementById('results');
+            const loadingDiv = document.getElementById('loading');
+
+            if (!input) {
+                resultsDiv.innerHTML = `
+                    <div class="error-message">
+                        请输入至少一个视频ID | Please enter at least one video ID
+                    </div>
+                `;
+                return;
+            }
+
+            // 显示加载状态 | Show loading state
+            loadingDiv.classList.add('active');
+            resultsDiv.innerHTML = '';
+
+            // 延迟处理以显示加载动画 | Delay processing to show loading animation
+            setTimeout(() => {
+                const ids = input.split('\n')
+                    .map(id => id.trim())
+                    .filter(id => id.length > 0);
+
+                let html = '';
+
+                ids.forEach(id => {
+                    const result = decodeAwemeId(id);
+                    html += createResultHtml(result);
+                });
+
+                resultsDiv.innerHTML = html;
+                loadingDiv.classList.remove('active');
+            }, 100);
+        }
+
+        // 清空结果 | Clear results
+        function clearResults() {
+            document.getElementById('idInput').value = '';
+            document.getElementById('results').innerHTML = '';
+        }
+
+        // 加载示例数据 | Load example data
+        function loadExamples() {
+            const examples = [
+                '7559684939684400414',
+                '7153549929326120227',
+                '7266740902494833931',
+                '7559661864628538654',
+                '7196618597496524067'
+            ];
+            document.getElementById('idInput').value = examples.join('\n');
+        }
+
+        // 支持回车键解析 | Support Enter key to decode
+        document.getElementById('idInput').addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                decodeIds();
+            }
+        });
+
+        // 页面加载完成后的初始化 | Initialize after page load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('抖音/TikTok 视频ID解析器已加载 | Douyin/TikTok Video ID Decoder loaded');
+            console.log('作者 | Author: Evil0ctal');
+            console.log('GitHub: https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder');
+        });
+    </script>
+</body>
+</html>
