@@ -7,8 +7,39 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Author](https://img.shields.io/badge/Author-Evil0ctal-red.svg)](https://github.com/evil0ctal)
+[![Online Demo](https://img.shields.io/badge/🌐_在线演示-GitHub_Pages-success.svg)](https://evil0ctal.github.io/Douyin-TikTok-Video-ID-Decoder/)
 
 > 通过位运算从 `aweme_id`（64位无符号整数）中**还原发布时间（秒级）**，并对**低32位**进行多维度分析，辅助时间序列研究、分片/QPS推断与风控分析。本工具已使用**73条真实数据**（抖音53条 / TikTok 20条）进行算法验证。
+
+---
+
+## 🌐 在线解析器
+
+**无需安装，即刻使用：** [https://evil0ctal.github.io/Douyin-TikTok-Video-ID-Decoder/](https://evil0ctal.github.io/Douyin-TikTok-Video-ID-Decoder/)
+
+### ✨ 特性
+
+- 🚀 **完全免费**：无需注册，开箱即用
+- 🌍 **中英双语**：自动检测浏览器语言，支持手动切换
+- 📱 **响应式设计**：完美支持桌面和移动设备
+- 🎨 **深色模式**：自动适配系统主题
+- ⚡ **批量解析**：支持同时解析多个视频ID
+- 🔐 **隐私安全**：所有解析在浏览器本地完成，无数据上传
+
+### 📸 界面预览
+
+**中文界面：**
+
+![中文界面](screenshots/Index.png)
+
+### 🎯 使用方法
+
+1. 访问 [在线解析器](https://evil0ctal.github.io/Douyin-TikTok-Video-ID-Decoder/)
+2. 在输入框中粘贴一个或多个视频ID（每行一个）
+3. 点击"解析"按钮查看结果
+4. 结果包含：UTC时间、本地时间、时间戳、分片ID、序列号等信息
+
+**快捷键：** `Ctrl + Enter` 快速解析
 
 ---
 
@@ -508,6 +539,10 @@ validate_decode_algorithm()
 ├── decode_aweme_id.py          # 🔧 核心脚本（解码/分析/验证）
 ├── test_validation.py          # ✅ 快速验证脚本
 ├── aweme_ids_output.json       # 📊 真实样本数据（73条）
+├── index.html                  # 🌐 在线解析器（GitHub Pages）
+├── screenshots/                # 📸 界面截图
+│   ├── Index.png              #    中文界面预览
+│   └── Index-EN.png           #    英文界面预览
 ├── README.md                   # 📖 中文文档
 ├── README-EN.md                # 📖 English Documentation
 └── config.example.toml         # ⚙️  可选配置（校准参数）
@@ -583,15 +618,23 @@ close_match_threshold = 5  # 接近匹配阈值（秒）
 
 ## 11) 版本信息
 
-| 信息 | 内容 |
-|-----|------|
-| **版本** | v2.0 (2025) |
+| 信息 | 内容               |
+|-----|------------------|
+| **版本** | v2.1 (2025)      |
 | **作者** | Evil0ctal (Adam) |
-| **许可证** | MIT License |
-| **Python** | 3.9+ |
-| **依赖** | 无外部依赖 |
+| **许可证** | MIT License      |
+| **Python** | 3.9+             |
+| **依赖** | 无外部依赖            |
 
 ## 12) 更新日志
+
+### v2.1 (2025-10)
+- 🌐 **新增在线解析器**：GitHub Pages 部署，无需安装即可使用
+- 🌍 **中英双语支持**：自动检测浏览器语言，支持手动切换
+- 📱 **响应式设计**：完美支持移动设备和桌面端
+- 🎨 **深色模式适配**：自动适配系统主题偏好
+- 🔍 **SEO 优化**：添加 Open Graph、Twitter Card、Schema.org 标签
+- 📸 **界面截图**：添加中英文界面预览图
 
 ### v2.0 (2025-01)
 - ✨ 新增 `validate_decode_algorithm()` 自动验证功能

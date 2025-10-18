@@ -1,12 +1,45 @@
 # Douyin / TikTok Video ID Decoder (Snowflake-style)
 
+[中文](README.md) | English
+
 *English Documentation · 2025 Edition · Validated with 73 Real Data Samples*
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Author](https://img.shields.io/badge/Author-Evil0ctal-red.svg)](https://github.com/evil0ctal)
+[![Online Demo](https://img.shields.io/badge/🌐_Live_Demo-GitHub_Pages-success.svg)](https://evil0ctal.github.io/Douyin-TikTok-Video-ID-Decoder/)
 
 > Decode `aweme_id` (64-bit unsigned integer) to extract **publish timestamp (second-precision)** and analyze the **low 32 bits** for time-series research, sharding/QPS inference, and risk control analysis. This tool has been validated with **73 real data samples** (53 from Douyin / 20 from TikTok).
+
+---
+
+## 🌐 Online Decoder
+
+**No installation required, use instantly:** [https://evil0ctal.github.io/Douyin-TikTok-Video-ID-Decoder/](https://evil0ctal.github.io/Douyin-TikTok-Video-ID-Decoder/)
+
+### ✨ Features
+
+- 🚀 **Completely Free**: No registration required, ready to use
+- 🌍 **Bilingual Support**: Auto-detects browser language, manual switching available
+- 📱 **Responsive Design**: Perfect for desktop and mobile devices
+- 🎨 **Dark Mode**: Automatically adapts to system theme
+- ⚡ **Batch Decoding**: Decode multiple video IDs simultaneously
+- 🔐 **Privacy First**: All decoding happens locally in your browser, no data upload
+
+### 📸 Interface Preview
+
+**English Interface:**
+
+![English Interface](screenshots/Index-EN.png)
+
+### 🎯 How to Use
+
+1. Visit the [Online Decoder](https://evil0ctal.github.io/Douyin-TikTok-Video-ID-Decoder/)
+2. Paste one or more video IDs in the input box (one per line)
+3. Click the "Decode" button to view results
+4. Results include: UTC time, local time, timestamp, shard ID, sequence number, and more
+
+**Shortcut:** Press `Ctrl + Enter` for quick decoding
 
 ---
 
@@ -506,6 +539,10 @@ After running the script, you'll get:
 ├── decode_aweme_id.py          # 🔧 Core script (decode/analyze/validate)
 ├── test_validation.py          # ✅ Quick validation script
 ├── aweme_ids_output.json       # 📊 Real sample data (73 entries)
+├── index.html                  # 🌐 Online decoder (GitHub Pages)
+├── screenshots/                # 📸 Interface screenshots
+│   ├── Index.png              #    Chinese interface preview
+│   └── Index-EN.png           #    English interface preview
 ├── README.md                   # 📖 Chinese Documentation
 ├── README-EN.md                # 📖 English Documentation
 └── config.example.toml         # ⚙️  Optional config (calibration params)
@@ -581,15 +618,23 @@ close_match_threshold = 5  # Close match threshold (seconds)
 
 ## 11) Version Information
 
-| Info | Content |
-|------|---------|
-| **Version** | v2.0 (2025) |
-| **Author** | Evil0ctal (Adam) |
-| **License** | MIT License |
-| **Python** | 3.9+ |
+| Info | Content                  |
+|------|--------------------------|
+| **Version** | v2.1 (2025)              |
+| **Author** | Evil0ctal (Adam)         |
+| **License** | MIT License              |
+| **Python** | 3.9+                     |
 | **Dependencies** | No external dependencies |
 
 ## 12) Changelog
+
+### v2.1 (2025-10)
+- 🌐 **Added Online Decoder**: Deployed on GitHub Pages, use without installation
+- 🌍 **Bilingual Support**: Auto-detects browser language with manual toggle
+- 📱 **Responsive Design**: Perfect support for mobile and desktop devices
+- 🎨 **Dark Mode Support**: Automatically adapts to system theme preference
+- 🔍 **SEO Optimization**: Added Open Graph, Twitter Card, Schema.org tags
+- 📸 **Interface Screenshots**: Added Chinese and English interface previews
 
 ### v2.0 (2025-01)
 - ✨ Added `validate_decode_algorithm()` auto-validation feature

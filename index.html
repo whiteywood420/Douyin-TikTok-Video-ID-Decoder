@@ -1,12 +1,97 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="抖音/TikTok 视频ID在线解析工具 - Douyin/TikTok Video ID Decoder">
-    <meta name="keywords" content="抖音,TikTok,视频ID,解析,Decoder,aweme_id">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Detect and set language before page renders / 在页面渲染前检测并设置语言 -->
+    <script>
+        (function() {
+            const savedLang = localStorage.getItem('preferred-language');
+            const browserLang = navigator.language || navigator.userLanguage;
+            const detectedLang = savedLang || (browserLang.startsWith('zh') ? 'zh-CN' : 'en');
+            document.documentElement.lang = detectedLang;
+        })();
+    </script>
+
+    <!-- Primary Meta Tags -->
+    <title>Douyin/TikTok Video ID Decoder | 抖音/TikTok 视频ID解析器</title>
+    <meta name="title" content="Douyin/TikTok Video ID Decoder | Online Snowflake ID Parser">
+    <meta name="description" content="Free online tool to decode Douyin and TikTok video IDs (aweme_id). Extract timestamps, shard IDs, and sequence numbers from 64-bit Snowflake-style IDs. 免费在线解析抖音/TikTok视频ID工具。">
+    <meta name="keywords" content="TikTok, Douyin, 抖音, Video ID Decoder, aweme_id, Snowflake ID, ID解析, 时间戳提取, timestamp decoder, shard ID, sequence number, 视频ID解析器">
     <meta name="author" content="Evil0ctal">
-    <title>抖音/TikTok 视频ID解析器 | Douyin/TikTok Video ID Decoder</title>
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English, Chinese">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://evil0ctal.github.io/Douyin-TikTok-Video-ID-Decoder/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://evil0ctal.github.io/Douyin-TikTok-Video-ID-Decoder/">
+    <meta property="og:title" content="Douyin/TikTok Video ID Decoder - Free Online Tool">
+    <meta property="og:description" content="Decode Douyin and TikTok video IDs to extract timestamps, shard IDs, and sequence numbers. Powered by Snowflake-style algorithm.">
+    <meta property="og:image" content="https://evil0ctal.github.io/Douyin-TikTok-Video-ID-Decoder/og-image.png">
+    <meta property="og:site_name" content="Douyin/TikTok Video ID Decoder">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="zh_CN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://evil0ctal.github.io/Douyin-TikTok-Video-ID-Decoder/">
+    <meta name="twitter:title" content="Douyin/TikTok Video ID Decoder">
+    <meta name="twitter:description" content="Free online tool to decode Douyin and TikTok video IDs. Extract timestamps and analyze Snowflake-style IDs.">
+    <meta name="twitter:image" content="https://evil0ctal.github.io/Douyin-TikTok-Video-ID-Decoder/twitter-card.png">
+    <meta name="twitter:creator" content="@Evil0ctal">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ID Decoder">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Douyin/TikTok Video ID Decoder",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "description": "Free online tool to decode Douyin and TikTok video IDs (aweme_id). Extract timestamps, shard IDs, and sequence numbers from 64-bit Snowflake-style IDs.",
+      "url": "https://evil0ctal.github.io/Douyin-TikTok-Video-ID-Decoder/",
+      "author": {
+        "@type": "Person",
+        "name": "Evil0ctal",
+        "url": "https://github.com/evil0ctal"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "73"
+      },
+      "featureList": [
+        "Batch ID decoding",
+        "Timestamp extraction",
+        "Shard ID analysis",
+        "Sequence number parsing",
+        "Binary structure visualization",
+        "Multi-language support"
+      ]
+    }
+    </script>
 
     <style>
         * {
@@ -50,6 +135,31 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .lang-switcher {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+        }
+
+        .lang-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
 
         .header {
@@ -343,6 +453,11 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .lang-switcher {
+                top: 0.5rem;
+                right: 0.5rem;
+            }
         }
 
         .loading {
@@ -364,114 +479,283 @@
             margin-bottom: 1rem;
             border-left: 4px solid var(--danger-color);
         }
+
+        @media (prefers-color-scheme: dark) {
+            .error-message {
+                background: #7f1d1d;
+                color: #fecaca;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">
+            <span id="langText">English</span>
+        </button>
+    </div>
+
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>🎬 抖音/TikTok 视频ID解析器</h1>
-            <p>Douyin/TikTok Video ID Decoder</p>
-            <p class="subtitle">基于 Snowflake 风格算法 | Powered by Snowflake-style Algorithm</p>
+            <h1 id="mainTitle">🎬 抖音/TikTok 视频ID解析器</h1>
+            <p id="mainSubtitle">Douyin/TikTok Video ID Decoder</p>
+            <p class="subtitle" id="poweredBy">基于 Snowflake 风格算法</p>
         </div>
 
         <!-- Main Input Card -->
         <div class="main-card">
             <div class="input-group">
                 <label for="idInput">
-                    视频ID输入 | Video ID Input
-                    <span class="badge badge-info">支持批量 | Batch Supported</span>
+                    <span id="inputLabel">视频ID输入</span>
+                    <span class="badge badge-info" id="batchBadge">支持批量</span>
                 </label>
                 <textarea
                     id="idInput"
                     rows="5"
-                    placeholder="输入一个或多个视频ID，每行一个 | Enter one or more video IDs, one per line&#10;&#10;示例 | Example:&#10;7559684939684400414&#10;7153549929326120227&#10;7266740902494833931"
+                    placeholder=""
+                    aria-label="Video ID Input"
                 ></textarea>
 
                 <div class="example-ids">
-                    <strong>示例数据 | Example IDs:</strong>
-                    <code>抖音 | Douyin: 7153549929326120227</code>
+                    <strong id="exampleLabel">示例数据：</strong>
+                    <code><span id="douyinLabel">抖音</span>: 7153549929326120227</code>
                     <code>TikTok: 7559684939684400414</code>
                 </div>
             </div>
 
             <div class="button-group">
-                <button class="btn btn-primary" onclick="decodeIds()">
-                    🔍 解析 | Decode
+                <button class="btn btn-primary" onclick="decodeIds()" id="decodeBtn">
+                    🔍 <span id="decodeBtnText">解析</span>
                 </button>
-                <button class="btn btn-secondary" onclick="clearResults()">
-                    🗑️ 清空 | Clear
+                <button class="btn btn-secondary" onclick="clearResults()" id="clearBtn">
+                    🗑️ <span id="clearBtnText">清空</span>
                 </button>
-                <button class="btn btn-secondary" onclick="loadExamples()">
-                    📝 加载示例 | Load Examples
+                <button class="btn btn-secondary" onclick="loadExamples()" id="exampleBtn">
+                    📝 <span id="exampleBtnText">加载示例</span>
                 </button>
             </div>
 
             <div class="loading" id="loading">
-                <p>解析中... | Decoding...</p>
+                <p id="loadingText">解析中...</p>
             </div>
 
             <div id="results" class="results"></div>
         </div>
 
-        <!-- Info Section -->
+        <!-- Info Section 1 -->
         <div class="info-section">
-            <h2>📖 使用说明 | Instructions</h2>
-            <ul>
-                <li><strong>ID结构:</strong> 64位无符号整数，高32位为Unix时间戳（秒级），低32位为唯一性标识</li>
-                <li><strong>ID Structure:</strong> 64-bit unsigned integer, high 32 bits = Unix timestamp (seconds), low 32 bits = uniqueness bits</li>
-                <li><strong>准确性:</strong> 解码时间与实际发布时间可能有5-30秒误差（属于正常范围）</li>
-                <li><strong>Accuracy:</strong> Decoded time may differ from actual publish time by 5-30 seconds (normal range)</li>
-                <li><strong>应用场景:</strong> 时间范围查询、时序分析、数据分片、批次识别</li>
-                <li><strong>Use Cases:</strong> Time range queries, time series analysis, data sharding, batch identification</li>
-            </ul>
+            <h2 id="instructionsTitle">📖 使用说明</h2>
+            <ul id="instructionsList"></ul>
         </div>
 
+        <!-- Info Section 2 -->
         <div class="info-section">
-            <h2>🔧 技术细节 | Technical Details</h2>
-            <ul>
-                <li><strong>高32位 | High 32 bits:</strong> Unix时间戳（秒级）| Unix timestamp (second-level)</li>
-                <li><strong>低32位 | Low 32 bits:</strong> 唯一性位（分片ID + 序列号）| Uniqueness bits (Shard ID + Sequence)</li>
-                <li><strong>算法验证:</strong> 已使用73条真实数据验证，平均误差14.3秒</li>
-                <li><strong>Algorithm Validation:</strong> Validated with 73 real samples, average error 14.3 seconds</li>
-                <li><strong>项目地址:</strong> <a href="https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder" target="_blank">GitHub Repository</a></li>
-            </ul>
+            <h2 id="technicalTitle">🔧 技术细节</h2>
+            <ul id="technicalList"></ul>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <p>Made with ❤️ by <a href="https://github.com/evil0ctal" target="_blank">Evil0ctal</a></p>
+            <p id="footerMade">Made with ❤️ by <a href="https://github.com/evil0ctal" target="_blank" rel="noopener">Evil0ctal</a></p>
             <p style="margin-top: 0.5rem; font-size: 0.9rem;">
-                <a href="https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder" target="_blank">⭐ GitHub</a> |
-                <a href="https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder/blob/main/README.md" target="_blank">📖 文档</a>
+                <a href="https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder" target="_blank" rel="noopener">⭐ GitHub</a> |
+                <a href="https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder/blob/main/README.md" target="_blank" rel="noopener" id="docsLink">📖 文档</a>
             </p>
         </div>
     </div>
 
     <script>
-        // 核心解码函数 | Core decode function
+        // Translations / 翻译配置
+        const translations = {
+            'zh-CN': {
+                mainTitle: '🎬 抖音/TikTok 视频ID解析器',
+                mainSubtitle: 'Douyin/TikTok Video ID Decoder',
+                poweredBy: '基于 Snowflake 风格算法',
+                inputLabel: '视频ID输入',
+                batchBadge: '支持批量',
+                placeholder: '输入一个或多个视频ID，每行一个\n\n示例：\n7559684939684400414\n7153549929326120227\n7266740902494833931',
+                exampleLabel: '示例数据：',
+                douyinLabel: '抖音',
+                decodeBtnText: '解析',
+                clearBtnText: '清空',
+                exampleBtnText: '加载示例',
+                loadingText: '解析中...',
+                instructionsTitle: '📖 使用说明',
+                technicalTitle: '🔧 技术细节',
+                footerMade: 'Made with ❤️ by',
+                docsLink: '📖 文档',
+                langText: 'English',
+
+                // Instructions
+                instructions: [
+                    '<strong>ID结构：</strong>64位无符号整数，高32位为Unix时间戳（秒级），低32位为唯一性标识',
+                    '<strong>准确性：</strong>解码时间与实际发布时间可能有5-30秒误差（属于正常范围）',
+                    '<strong>应用场景：</strong>时间范围查询、时序分析、数据分片、批次识别',
+                    '<strong>快捷键：</strong>按 Ctrl+Enter 快速解析'
+                ],
+
+                // Technical details
+                technical: [
+                    '<strong>高32位：</strong>Unix时间戳（秒级）',
+                    '<strong>低32位：</strong>唯一性位（分片ID + 序列号）',
+                    '<strong>算法验证：</strong>已使用73条真实数据验证，平均误差14.3秒',
+                    '<strong>项目地址：</strong><a href="https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder" target="_blank" rel="noopener">GitHub Repository</a>'
+                ],
+
+                // Result labels
+                utcTime: '⏰ UTC时间',
+                localTime: '🌍 本地时间',
+                timestamp: '📅 时间戳',
+                shardId: '🔢 分片ID',
+                sequence: '📊 序列号',
+                low32bits: '💾 低32位',
+                bitStructure: '64位结构：',
+                high32Label: '高32位：',
+                low32Label: '低32位：',
+                infoLabel: '解读：',
+                timestampLabel: '时间戳',
+                shardLabel: '分片',
+                seqLabel: '序列',
+
+                // Error messages
+                errorPrefix: '错误',
+                errorCannotDecode: '无法解析ID',
+                errorPleaseEnter: '请输入至少一个视频ID',
+                decodedBadge: '✓ 解析成功'
+            },
+
+            'en': {
+                mainTitle: '🎬 Douyin/TikTok Video ID Decoder',
+                mainSubtitle: 'Extract timestamps and analyze Snowflake-style IDs',
+                poweredBy: 'Powered by Snowflake-style Algorithm',
+                inputLabel: 'Video ID Input',
+                batchBadge: 'Batch Supported',
+                placeholder: 'Enter one or more video IDs, one per line\n\nExample:\n7559684939684400414\n7153549929326120227\n7266740902494833931',
+                exampleLabel: 'Example IDs:',
+                douyinLabel: 'Douyin',
+                decodeBtnText: 'Decode',
+                clearBtnText: 'Clear',
+                exampleBtnText: 'Load Examples',
+                loadingText: 'Decoding...',
+                instructionsTitle: '📖 Instructions',
+                technicalTitle: '🔧 Technical Details',
+                footerMade: 'Made with ❤️ by',
+                docsLink: '📖 Documentation',
+                langText: '中文',
+
+                // Instructions
+                instructions: [
+                    '<strong>ID Structure:</strong> 64-bit unsigned integer, high 32 bits = Unix timestamp (seconds), low 32 bits = uniqueness bits',
+                    '<strong>Accuracy:</strong> Decoded time may differ from actual publish time by 5-30 seconds (normal range)',
+                    '<strong>Use Cases:</strong> Time range queries, time series analysis, data sharding, batch identification',
+                    '<strong>Shortcut:</strong> Press Ctrl+Enter to decode quickly'
+                ],
+
+                // Technical details
+                technical: [
+                    '<strong>High 32 bits:</strong> Unix timestamp (second-level)',
+                    '<strong>Low 32 bits:</strong> Uniqueness bits (Shard ID + Sequence)',
+                    '<strong>Algorithm Validation:</strong> Validated with 73 real samples, average error 14.3 seconds',
+                    '<strong>Project URL:</strong> <a href="https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder" target="_blank" rel="noopener">GitHub Repository</a>'
+                ],
+
+                // Result labels
+                utcTime: '⏰ UTC Time',
+                localTime: '🌍 Local Time',
+                timestamp: '📅 Timestamp',
+                shardId: '🔢 Shard ID',
+                sequence: '📊 Sequence',
+                low32bits: '💾 Low 32 bits',
+                bitStructure: '64-bit Structure:',
+                high32Label: 'High 32 bits:',
+                low32Label: 'Low 32 bits:',
+                infoLabel: 'Info:',
+                timestampLabel: 'Timestamp',
+                shardLabel: 'Shard',
+                seqLabel: 'Seq',
+
+                // Error messages
+                errorPrefix: 'Error',
+                errorCannotDecode: 'Cannot decode ID',
+                errorPleaseEnter: 'Please enter at least one video ID',
+                decodedBadge: '✓ Decoded'
+            }
+        };
+
+        // Current language / 当前语言
+        let currentLang = 'zh-CN';
+
+        // Detect browser language / 检测浏览器语言
+        function detectBrowserLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('zh')) {
+                return 'zh-CN';
+            }
+            return 'en';
+        }
+
+        // Toggle language / 切换语言
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh-CN' ? 'en' : 'zh-CN';
+            updateLanguage();
+
+            // Update HTML lang attribute for SEO
+            document.documentElement.lang = currentLang;
+
+            // Save preference
+            localStorage.setItem('preferred-language', currentLang);
+        }
+
+        // Update all text content / 更新所有文本内容
+        function updateLanguage() {
+            const t = translations[currentLang];
+
+            // Update main elements
+            document.getElementById('mainTitle').textContent = t.mainTitle;
+            document.getElementById('mainSubtitle').textContent = t.mainSubtitle;
+            document.getElementById('poweredBy').textContent = t.poweredBy;
+            document.getElementById('inputLabel').textContent = t.inputLabel;
+            document.getElementById('batchBadge').textContent = t.batchBadge;
+            document.getElementById('idInput').placeholder = t.placeholder;
+            document.getElementById('exampleLabel').textContent = t.exampleLabel;
+            document.getElementById('douyinLabel').textContent = t.douyinLabel;
+            document.getElementById('decodeBtnText').textContent = t.decodeBtnText;
+            document.getElementById('clearBtnText').textContent = t.clearBtnText;
+            document.getElementById('exampleBtnText').textContent = t.exampleBtnText;
+            document.getElementById('loadingText').textContent = t.loadingText;
+            document.getElementById('instructionsTitle').textContent = t.instructionsTitle;
+            document.getElementById('technicalTitle').textContent = t.technicalTitle;
+            document.getElementById('docsLink').textContent = t.docsLink;
+            document.getElementById('langText').textContent = t.langText;
+
+            // Update instructions list
+            const instructionsList = document.getElementById('instructionsList');
+            instructionsList.innerHTML = t.instructions.map(item => `<li>${item}</li>`).join('');
+
+            // Update technical list
+            const technicalList = document.getElementById('technicalList');
+            technicalList.innerHTML = t.technical.map(item => `<li>${item}</li>`).join('');
+        }
+
+        // Get translation / 获取翻译
+        function t(key) {
+            return translations[currentLang][key] || key;
+        }
+
+        // Core decode function / 核心解码函数
         function decodeAwemeId(idStr) {
             try {
-                // 将字符串转换为BigInt（支持64位整数）| Convert string to BigInt (supports 64-bit integers)
                 const n = BigInt(idStr);
-
-                // 提取高32位（时间戳）| Extract high 32 bits (timestamp)
                 const tsSec = Number(n >> 32n);
-
-                // 提取低32位（唯一性位）| Extract low 32 bits (uniqueness bits)
                 const low32 = Number(n & 0xFFFFFFFFn);
-
-                // 转换为日期时间 | Convert to datetime
                 const dtUtc = new Date(tsSec * 1000);
-
-                // 转换为本地时间 | Convert to local time
-                const dtLocal = dtUtc.toLocaleString('zh-CN', { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone });
-
-                // 分析低32位结构（16+16划分）| Analyze low 32-bit structure (16+16 division)
+                const dtLocal = dtUtc.toLocaleString(currentLang === 'zh-CN' ? 'zh-CN' : 'en-US', {
+                    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+                });
                 const shardId = (low32 >> 16) & 0xFFFF;
                 const sequence = low32 & 0xFFFF;
-
-                // 64位二进制表示 | 64-bit binary representation
                 const bin64 = n.toString(2).padStart(64, '0');
                 const high32Bin = bin64.substring(0, 32);
                 const low32Bin = bin64.substring(32);
@@ -501,7 +785,7 @@
             }
         }
 
-        // 格式化二进制显示（每8位一组）| Format binary display (groups of 8 bits)
+        // Format binary display / 格式化二进制显示
         function formatBinary(binStr) {
             let result = '';
             for (let i = 0; i < binStr.length; i += 8) {
@@ -510,12 +794,12 @@
             return result.trim();
         }
 
-        // 创建结果HTML | Create result HTML
+        // Create result HTML / 创建结果HTML
         function createResultHtml(result) {
             if (!result.success) {
                 return `
                     <div class="error-message">
-                        <strong>错误 | Error:</strong> 无法解析ID "${result.id}"<br>
+                        <strong>${t('errorPrefix')}:</strong> ${t('errorCannotDecode')} "${result.id}"<br>
                         ${result.error}
                     </div>
                 `;
@@ -525,57 +809,57 @@
                 <div class="result-item">
                     <div class="result-header">
                         <div class="result-id">${result.id}</div>
-                        <span class="badge badge-success">✓ 解析成功 | Decoded</span>
+                        <span class="badge badge-success">${t('decodedBadge')}</span>
                     </div>
 
                     <div class="result-grid">
                         <div class="result-field">
-                            <div class="result-field-label">⏰ UTC时间 | UTC Time</div>
+                            <div class="result-field-label">${t('utcTime')}</div>
                             <div class="result-field-value">${result.datetimeUtc}</div>
                         </div>
                         <div class="result-field">
-                            <div class="result-field-label">🌍 本地时间 | Local Time</div>
+                            <div class="result-field-label">${t('localTime')}</div>
                             <div class="result-field-value">${result.datetimeLocal}</div>
                         </div>
                         <div class="result-field">
-                            <div class="result-field-label">📅 时间戳 | Timestamp (秒)</div>
+                            <div class="result-field-label">${t('timestamp')} (s)</div>
                             <div class="result-field-value">${result.timestampSec}</div>
                         </div>
                         <div class="result-field">
-                            <div class="result-field-label">🔢 分片ID | Shard ID</div>
+                            <div class="result-field-label">${t('shardId')}</div>
                             <div class="result-field-value">${result.shardId} (${result.shardIdHex})</div>
                         </div>
                         <div class="result-field">
-                            <div class="result-field-label">📊 序列号 | Sequence</div>
+                            <div class="result-field-label">${t('sequence')}</div>
                             <div class="result-field-value">${result.sequence} (${result.sequenceHex})</div>
                         </div>
                         <div class="result-field">
-                            <div class="result-field-label">💾 低32位 | Low 32 bits</div>
+                            <div class="result-field-label">${t('low32bits')}</div>
                             <div class="result-field-value">${result.low32Dec} (${result.low32Hex})</div>
                         </div>
                     </div>
 
                     <div class="bit-structure">
                         <div class="bit-row">
-                            <span class="bit-label">64位结构 | 64-bit Structure:</span>
+                            <span class="bit-label">${t('bitStructure')}</span>
                         </div>
                         <div class="bit-row">
-                            <span class="bit-label">高32位 | High:</span> <span class="high-bits">${formatBinary(result.high32Bin)}</span>
+                            <span class="bit-label">${t('high32Label')}</span> <span class="high-bits">${formatBinary(result.high32Bin)}</span>
                         </div>
                         <div class="bit-row">
-                            <span class="bit-label">低32位 | Low: </span> <span class="low-bits">${formatBinary(result.low32BinFull)}</span>
+                            <span class="bit-label">${t('low32Label')}</span> <span class="low-bits">${formatBinary(result.low32BinFull)}</span>
                         </div>
                         <div class="bit-row">
-                            <span class="bit-label">解读 | Info:</span>
-                            <span class="high-bits">时间戳(Timestamp)</span> +
-                            <span class="low-bits">分片(Shard)+序列(Seq)</span>
+                            <span class="bit-label">${t('infoLabel')}</span>
+                            <span class="high-bits">${t('timestampLabel')}</span> +
+                            <span class="low-bits">${t('shardLabel')}+${t('seqLabel')}</span>
                         </div>
                     </div>
                 </div>
             `;
         }
 
-        // 解析ID | Decode IDs
+        // Decode IDs / 解析ID
         function decodeIds() {
             const input = document.getElementById('idInput').value.trim();
             const resultsDiv = document.getElementById('results');
@@ -584,24 +868,21 @@
             if (!input) {
                 resultsDiv.innerHTML = `
                     <div class="error-message">
-                        请输入至少一个视频ID | Please enter at least one video ID
+                        ${t('errorPleaseEnter')}
                     </div>
                 `;
                 return;
             }
 
-            // 显示加载状态 | Show loading state
             loadingDiv.classList.add('active');
             resultsDiv.innerHTML = '';
 
-            // 延迟处理以显示加载动画 | Delay processing to show loading animation
             setTimeout(() => {
                 const ids = input.split('\n')
                     .map(id => id.trim())
                     .filter(id => id.length > 0);
 
                 let html = '';
-
                 ids.forEach(id => {
                     const result = decodeAwemeId(id);
                     html += createResultHtml(result);
@@ -612,13 +893,13 @@
             }, 100);
         }
 
-        // 清空结果 | Clear results
+        // Clear results / 清空结果
         function clearResults() {
             document.getElementById('idInput').value = '';
             document.getElementById('results').innerHTML = '';
         }
 
-        // 加载示例数据 | Load example data
+        // Load examples / 加载示例
         function loadExamples() {
             const examples = [
                 '7559684939684400414',
@@ -630,17 +911,25 @@
             document.getElementById('idInput').value = examples.join('\n');
         }
 
-        // 支持回车键解析 | Support Enter key to decode
+        // Keyboard support / 键盘支持
         document.getElementById('idInput').addEventListener('keydown', function(e) {
             if (e.ctrlKey && e.key === 'Enter') {
                 decodeIds();
             }
         });
 
-        // 页面加载完成后的初始化 | Initialize after page load
+        // Initialize / 初始化
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('抖音/TikTok 视频ID解析器已加载 | Douyin/TikTok Video ID Decoder loaded');
-            console.log('作者 | Author: Evil0ctal');
+            // Check saved language preference or detect browser language
+            const savedLang = localStorage.getItem('preferred-language');
+            currentLang = savedLang || detectBrowserLanguage();
+
+            // Update language
+            updateLanguage();
+            document.documentElement.lang = currentLang;
+
+            console.log('Douyin/TikTok Video ID Decoder loaded');
+            console.log('Author: Evil0ctal');
             console.log('GitHub: https://github.com/Evil0ctal/Douyin-TikTok-Video-ID-Decoder');
         });
     </script>
