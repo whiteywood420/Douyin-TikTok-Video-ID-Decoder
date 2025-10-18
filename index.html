@@ -393,6 +393,56 @@
             text-decoration: underline;
         }
 
+        .sponsor {
+            background: var(--bg-primary);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .sponsor h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+
+        .sponsor p {
+            margin: 0.75rem 0;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .sponsor a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .sponsor a:hover {
+            text-decoration: underline;
+            color: var(--secondary-color);
+        }
+
+        .sponsor p:nth-child(2) {
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .sponsor p:nth-child(3) {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1rem;
+        }
+
+        .sponsor p:last-child {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
         .badge {
             display: inline-block;
             padding: 0.25rem 0.75rem;
@@ -556,6 +606,14 @@
             <ul id="technicalList"></ul>
         </div>
 
+        <!-- Sponsor Section -->
+        <div class="sponsor">
+            <h3 id="sponsorTitle">🚀 项目赞助方</h3>
+            <p id="sponsorLine1">本项目由 <a href="https://tikhub.io" target="_blank" rel="noopener">TikHub.io</a> 赞助支持</p>
+            <p id="sponsorLine2">TikHub - 专业的社交媒体数据 API 服务平台</p>
+            <p id="sponsorLine3">支持抖音、快手、小红书、微信公众号、微信视频号、TikTok、Instagram、YouTube 等多平台数据获取与分析</p>
+        </div>
+
         <!-- Footer -->
         <div class="footer">
             <p id="footerMade">Made with ❤️ by <a href="https://github.com/evil0ctal" target="_blank" rel="noopener">Evil0ctal</a></p>
@@ -584,6 +642,10 @@
                 loadingText: '解析中...',
                 instructionsTitle: '📖 使用说明',
                 technicalTitle: '🔧 技术细节',
+                sponsorTitle: '🚀 项目赞助方',
+                sponsorLine1: '本项目由 <a href="https://tikhub.io" target="_blank" rel="noopener">TikHub.io</a> 赞助支持',
+                sponsorLine2: 'TikHub - 专业的社交媒体数据 API 服务平台',
+                sponsorLine3: '支持抖音、快手、小红书、微信公众号、微信视频号、TikTok、Instagram、YouTube 等多平台数据获取与分析',
                 footerMade: 'Made with ❤️ by',
                 docsLink: '📖 文档',
                 langText: 'English',
@@ -641,6 +703,10 @@
                 loadingText: 'Decoding...',
                 instructionsTitle: '📖 Instructions',
                 technicalTitle: '🔧 Technical Details',
+                sponsorTitle: '🚀 Project Sponsor',
+                sponsorLine1: 'This project is sponsored by <a href="https://tikhub.io" target="_blank" rel="noopener">TikHub.io</a>',
+                sponsorLine2: 'TikHub - Professional Social Media Data API Service Platform',
+                sponsorLine3: 'Supports Douyin, Kuaishou, Xiaohongshu, WeChat Official Accounts, WeChat Channels, TikTok, Instagram, YouTube and more',
                 footerMade: 'Made with ❤️ by',
                 docsLink: '📖 Documentation',
                 langText: '中文',
@@ -727,6 +793,10 @@
             document.getElementById('loadingText').textContent = t.loadingText;
             document.getElementById('instructionsTitle').textContent = t.instructionsTitle;
             document.getElementById('technicalTitle').textContent = t.technicalTitle;
+            document.getElementById('sponsorTitle').textContent = t.sponsorTitle;
+            document.getElementById('sponsorLine1').innerHTML = t.sponsorLine1;
+            document.getElementById('sponsorLine2').textContent = t.sponsorLine2;
+            document.getElementById('sponsorLine3').textContent = t.sponsorLine3;
             document.getElementById('docsLink').textContent = t.docsLink;
             document.getElementById('langText').textContent = t.langText;
 
